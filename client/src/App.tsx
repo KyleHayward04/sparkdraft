@@ -9,6 +9,7 @@ import Projects from "@/pages/projects";
 import Favorites from "@/pages/favorites";
 import Settings from "@/pages/settings";
 import Subscribe from "@/pages/subscribe";
+import Profile from "@/pages/profile";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -19,6 +20,7 @@ function Router() {
       <Route path="/favorites" component={Favorites} />
       <Route path="/settings" component={Settings} />
       <Route path="/subscribe" component={Subscribe} />
+      <Route path="/profile" component={Profile} />
       <Route component={NotFound} />
     </Switch>
   );

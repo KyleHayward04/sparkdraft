@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { QuotaIndicator } from "@/components/quota-indicator";
+import { ProfileDropdown } from "@/components/profile-dropdown";
 import { Crown, Zap, Settings as SettingsIcon } from "lucide-react";
 import { Link } from "wouter";
 
@@ -61,9 +62,7 @@ export default function Settings() {
               <Zap className="h-8 w-8 text-primary mr-2" />
               <h1 className="text-xl font-bold text-gray-900">SparkDraft</h1>
             </div>
-            <div className="h-8 w-8 bg-gray-100 rounded-full flex items-center justify-center">
-              <span className="text-sm font-medium text-gray-600">U</span>
-            </div>
+            <ProfileDropdown userId={currentUser.id} />
           </div>
         </div>
       </nav>

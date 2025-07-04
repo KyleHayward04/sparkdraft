@@ -4,6 +4,7 @@ import { SparkGenerator } from "@/components/spark-generator";
 import { ResultsTabs } from "@/components/results-tabs";
 import { ProjectCard } from "@/components/project-card";
 import { QuotaIndicator } from "@/components/quota-indicator";
+import { ProfileDropdown } from "@/components/profile-dropdown";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Zap } from "lucide-react";
@@ -62,12 +63,12 @@ export default function Home() {
                   <QuotaIndicator 
                     sparksUsed={quota.sparksUsed} 
                     sparksLimit={quota.sparksLimit}
+                    clickable={true}
+                    onClick={() => window.location.href = "/subscribe"}
                   />
                 </div>
               )}
-              <div className="h-8 w-8 bg-gray-100 rounded-full flex items-center justify-center">
-                <span className="text-sm font-medium text-gray-600">U</span>
-              </div>
+              <ProfileDropdown userId={currentUser.id} />
             </div>
           </div>
         </div>

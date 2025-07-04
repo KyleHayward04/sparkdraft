@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { ProjectCard } from "@/components/project-card";
 import { ResultsTabs } from "@/components/results-tabs";
+import { ProfileDropdown } from "@/components/profile-dropdown";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Zap, Star } from "lucide-react";
@@ -35,9 +36,7 @@ export default function Favorites() {
               <Zap className="h-8 w-8 text-primary mr-2" />
               <h1 className="text-xl font-bold text-gray-900">SparkDraft</h1>
             </div>
-            <div className="h-8 w-8 bg-gray-100 rounded-full flex items-center justify-center">
-              <span className="text-sm font-medium text-gray-600">U</span>
-            </div>
+            <ProfileDropdown userId={currentUser.id} />
           </div>
         </div>
       </nav>

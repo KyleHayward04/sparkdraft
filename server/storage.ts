@@ -32,6 +32,20 @@ export class MemStorage implements IStorage {
     this.projects = new Map();
     this.currentUserId = 1;
     this.currentProjectId = 1;
+    
+    // Create a default user for testing
+    this.users.set(1, {
+      id: 1,
+      username: "Demo User",
+      email: "demo@sparkdraft.com",
+      password: "password",
+      subscriptionTier: "free",
+      sparksUsed: 0,
+      sparksLimit: 10,
+      stripeCustomerId: null,
+      stripeSubscriptionId: null,
+      createdAt: new Date()
+    });
   }
 
   async getUser(id: number): Promise<User | undefined> {
