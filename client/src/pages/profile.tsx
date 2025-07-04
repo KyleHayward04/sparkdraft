@@ -44,10 +44,10 @@ export default function Profile() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 pb-20 sm:pb-6">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-20 md:pb-8">
         {/* Page Header */}
-        <div className="mb-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">Profile</h2>
+        <div className="mb-12">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Profile</h1>
           <p className="text-gray-600">
             Manage your account information and subscription.
           </p>
@@ -56,7 +56,7 @@ export default function Profile() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Profile Information */}
           <div className="lg:col-span-2 space-y-6">
-            <Card>
+            <Card className="bg-white/70 backdrop-blur-sm border-0 shadow-xl">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <User className="h-5 w-5" />
@@ -138,7 +138,7 @@ export default function Profile() {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Subscription Card */}
-            <Card>
+            <Card className="bg-white/70 backdrop-blur-sm border-0 shadow-xl">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Crown className="h-5 w-5 text-yellow-500" />

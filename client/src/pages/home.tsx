@@ -48,45 +48,59 @@ export default function Home() {
   const recentProjects = projects.slice(0, 3);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 pb-20 sm:pb-6">
-        {/* Header Section */}
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-20 md:pb-8">
+        {/* Hero Section */}
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mb-6">
+            <Zap className="h-8 w-8 text-white" />
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Jump-start your next creation
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Generate AI-powered outlines, titles, and promo copy for your blog posts, 
-            videos, newsletters, and social campaigns.
+          </h1>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Generate AI-powered outlines, titles, and promotional copy for your blog posts, 
+            videos, newsletters, and social campaigns in seconds.
           </p>
         </div>
 
         {/* Spark Generator */}
-        <div className="mb-8">
-          <SparkGenerator 
-            userId={currentUser.id} 
-            onSuccess={handleProjectGenerated}
-          />
+        <div className="mb-12">
+          <Card className="bg-white/70 backdrop-blur-sm border-0 shadow-xl">
+            <CardContent className="p-8">
+              <SparkGenerator 
+                userId={currentUser.id} 
+                onSuccess={handleProjectGenerated}
+              />
+            </CardContent>
+          </Card>
         </div>
 
         {/* Results Section */}
         {selectedProject && (
-          <div className="mb-8">
-            <ResultsTabs project={selectedProject} />
+          <div className="mb-12">
+            <Card className="bg-white/70 backdrop-blur-sm border-0 shadow-xl">
+              <CardContent className="p-8">
+                <ResultsTabs project={selectedProject} />
+              </CardContent>
+            </Card>
           </div>
         )}
 
         {/* Recent Projects */}
         {recentProjects.length > 0 && (
-          <Card>
-            <CardContent className="p-6">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl font-semibold text-gray-900">Recent Sparks</h3>
-                <Button variant="ghost" size="sm">
-                  View all
+          <Card className="bg-white/70 backdrop-blur-sm border-0 shadow-xl">
+            <CardContent className="p-8">
+              <div className="flex items-center justify-between mb-8">
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Recent Sparks</h3>
+                  <p className="text-gray-600">Your latest content creations</p>
+                </div>
+                <Button variant="outline" size="sm" className="hidden sm:flex">
+                  View all projects
                 </Button>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {recentProjects.map((project) => (
                   <ProjectCard
                     key={project.id}
@@ -95,6 +109,23 @@ export default function Home() {
                   />
                 ))}
               </div>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Empty State */}
+        {recentProjects.length === 0 && !selectedProject && (
+          <Card className="bg-white/70 backdrop-blur-sm border-0 shadow-xl">
+            <CardContent className="p-12 text-center">
+              <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Zap className="h-8 w-8 text-gray-400" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Create your first spark
+              </h3>
+              <p className="text-gray-600 max-w-md mx-auto">
+                Start generating content by filling out the form above. Your projects will appear here.
+              </p>
             </CardContent>
           </Card>
         )}

@@ -5,7 +5,7 @@ import { ResultsTabs } from "@/components/results-tabs";
 import { ProfileDropdown } from "@/components/profile-dropdown";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Zap, Star } from "lucide-react";
+import { Zap, Star, Heart } from "lucide-react";
 import { Project } from "@/lib/types";
 
 export default function Favorites() {
@@ -27,33 +27,35 @@ export default function Favorites() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 pb-20 sm:pb-6">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pb-20 md:pb-8">
         {/* Page Header */}
-        <div className="mb-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">Your Favorites</h2>
-          <p className="text-gray-600">
+        <div className="mb-12">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Your Favorites</h1>
+          <p className="text-xl text-gray-600">
             Quick access to your starred projects and content.
           </p>
         </div>
 
         {/* Results Section */}
         {selectedProject && (
-          <div className="mb-8">
-            <div className="mb-4">
-              <Button
-                variant="ghost"
-                onClick={() => setSelectedProject(null)}
-                className="text-primary hover:text-primary/80"
-              >
-                ← Back to favorites
-              </Button>
-            </div>
-            <ResultsTabs project={selectedProject} />
-          </div>
+          <Card className="bg-white/70 backdrop-blur-sm border-0 shadow-xl mb-8">
+            <CardContent className="p-8">
+              <div className="mb-6">
+                <Button
+                  variant="ghost"
+                  onClick={() => setSelectedProject(null)}
+                  className="text-primary hover:text-primary/80"
+                >
+                  ← Back to favorites
+                </Button>
+              </div>
+              <ResultsTabs project={selectedProject} />
+            </CardContent>
+          </Card>
         )}
 
         {/* Favorites Grid */}
-        {!selectedProject && (
+        {!selectedProject && favorites.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {favorites.map((project: Project) => (
               <ProjectCard
@@ -67,17 +69,20 @@ export default function Favorites() {
 
         {/* Empty State */}
         {favorites.length === 0 && !selectedProject && (
-          <Card>
-            <CardContent className="py-12">
-              <div className="text-center">
-                <Star className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                <h3 className="text-lg font-medium text-gray-900 mb-2">
-                  No favorites yet
-                </h3>
-                <p className="text-gray-500">
-                  Star your best sparks to find them quickly here.
-                </p>
+          <Card className="bg-white/70 backdrop-blur-sm border-0 shadow-xl">
+            <CardContent className="p-12 text-center">
+              <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Heart className="h-8 w-8 text-gray-400" />
               </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                No favorites yet
+              </h3>
+              <p className="text-gray-600 mb-4">
+                Star your best sparks to find them quickly here.
+              </p>
+              <Button variant="outline" onClick={() => window.location.href = '/projects'}>
+                Browse your projects
+              </Button>
             </CardContent>
           </Card>
         )}
