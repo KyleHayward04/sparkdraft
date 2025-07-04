@@ -15,6 +15,16 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 
 export async function registerRoutes(app: Express): Promise<Server> {
   
+  // Simple auth middleware for demo purposes
+  const mockAuth = (req: any, res: any, next: any) => {
+    // For demo, we'll use a mock user
+    req.user = { id: 1, username: "Demo User", email: "demo@sparkdraft.com" };
+    req.isAuthenticated = () => true;
+    next();
+  };
+  
+  app.use(mockAuth);
+  
   // Auth routes
   app.post("/api/register", async (req, res) => {
     try {
