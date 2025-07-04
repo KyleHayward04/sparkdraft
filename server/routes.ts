@@ -204,10 +204,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Stripe subscription routes
   app.post('/api/create-subscription', async (req, res) => {
     try {
-      const userId = parseInt(req.headers["user-id"] as string);
-      if (!userId) {
+      if (!req.isAuthenticated()) {
         return res.status(401).json({ message: "Unauthorized" });
       }
+      
+      const userId = req.user.id;
 
       const user = await storage.getUser(userId);
       if (!user) {

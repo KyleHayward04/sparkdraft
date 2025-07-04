@@ -4,7 +4,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem,
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { User, Settings, Crown, LogOut, Flame } from "lucide-react";
+import { User, Crown, LogOut, Flame } from "lucide-react";
 import { Link } from "wouter";
 
 interface ProfileDropdownProps {
@@ -88,12 +88,6 @@ export function ProfileDropdown({ userId }: ProfileDropdownProps) {
             <DropdownMenuItem className="cursor-pointer">
               <User className="mr-2 h-4 w-4" />
               <span>Profile</span>
-            </DropdownMenuItem>
-          </Link>
-          <Link href="/settings">
-            <DropdownMenuItem className="cursor-pointer">
-              <Settings className="mr-2 h-4 w-4" />
-              <span>Settings</span>
             </DropdownMenuItem>
           </Link>
         </DropdownMenuGroup>

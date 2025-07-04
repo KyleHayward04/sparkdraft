@@ -2,7 +2,7 @@
 
 ## Overview
 
-SparkDraft is a full-stack web application that generates AI-powered content outlines, titles, and promotional copy for various content formats (blog posts, videos, newsletters, and carousels). The application features a mobile-first Progressive Web App design with subscription-based usage limits and project management capabilities.
+SparkDraft is a full-stack web application that generates AI-powered content outlines, titles, and promotional copy for various content formats (blog posts, videos, newsletters, and carousels). The application is built with a modern tech stack featuring React frontend, Node.js backend, and includes subscription-based payment processing through Stripe.
 
 ## System Architecture
 
@@ -50,18 +50,33 @@ SparkDraft is a full-stack web application that generates AI-powered content out
 
 ## External Dependencies
 
-- **OpenAI API**: Content generation using GPT models
+### Core Dependencies
+- **OpenAI API**: Content generation service
 - **Stripe**: Payment processing and subscription management
-- **Neon Database**: PostgreSQL database hosting
-- **Radix UI**: Accessible UI component primitives
-- **Tailwind CSS**: Utility-first CSS framework
+- **Neon Database**: PostgreSQL hosting (configured for production)
+
+### Development Tools
+- **Vite**: Development server and build tool
+- **TypeScript**: Type safety and development experience
+- **ESLint/Prettier**: Code quality and formatting
 
 ## Deployment Strategy
 
-- **Development**: Vite dev server with HMR
-- **Production**: Static build with Express.js server
-- **Database**: PostgreSQL with Drizzle migrations
-- **Environment Variables**: OpenAI API key, Stripe keys, database URL
+### Development
+- Hot module replacement with Vite
+- In-memory storage for rapid prototyping
+- Environment variables for API keys
+
+### Production
+- Static asset serving through Express
+- PostgreSQL database connection
+- Environment-based configuration
+- Build optimization through Vite
+
+### Build Process
+1. Frontend: Vite builds React app to `dist/public`
+2. Backend: ESBuild bundles server code to `dist/index.js`
+3. Database: Drizzle migrations applied via `db:push`
 
 ## Changelog
 

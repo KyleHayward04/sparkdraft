@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "wouter";
 import { ProfileDropdown } from "@/components/profile-dropdown";
 import { QuotaIndicator } from "@/components/quota-indicator";
 import { Zap } from "lucide-react";
@@ -18,10 +19,12 @@ export function Layout({ children }: LayoutProps) {
       <nav className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <Zap className="h-8 w-8 text-primary mr-2" />
-              <h1 className="text-xl font-bold text-gray-900">SparkDraft</h1>
-            </div>
+            <Link href="/">
+              <div className="flex items-center cursor-pointer hover:opacity-80 transition-opacity">
+                <Zap className="h-8 w-8 text-primary mr-2" />
+                <h1 className="text-xl font-bold text-gray-900">SparkDraft</h1>
+              </div>
+            </Link>
             <div className="flex items-center space-x-4">
               {quota && (
                 <div className="hidden sm:block">
