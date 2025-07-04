@@ -1,0 +1,89 @@
+1. App Concept & Value Proposition
+Name (example): SparkDraft
+A lightweight app that jump‑starts your next blog post, video script, newsletter or social campaign by delivering AI‑driven outlines, titles and promo copy—right in your pocket or browser.
+
+2. Platform & Tech Stack
+Frontend:
+
+Web: React + Tailwind CSS (PWA‑enabled)
+
+Mobile: React Native (iOS & Android)
+
+Backend: Node.js (Express or Fastify) or Python (FastAPI), serving as an API gateway to OpenAI GPT‑4 endpoints.
+
+Auth & Sync: Firebase Auth (email, social logins) + Firestore for real‑time sync across devices.
+
+Offline‑First: Cache your last 5 projects on device using Redux Persist (web) and AsyncStorage (mobile).
+
+Billing: Stripe mobile SDK + Stripe Billing portal embedded in app.
+
+3. Core User Flows
+A. Quick Idea Mode
+Launch App → “New Spark” button
+
+Enter Topic: single-line input (“Remote work productivity”)
+
+Select Format: [Blog] [Video] [Newsletter] [Carousel]
+
+Tap “Spark It!” → Loading spinner while AI drafts
+
+Results Screen:
+
+Tab 1: Outlines (3 cards with section headings & word‑counts)
+
+Tab 2: Titles (10 tappable headline options, each with a “Copy” icon)
+
+Tab 3: Promos (5 social‑media post drafts, platform‑tagged)
+
+B. Project Workspace
+Saved Sparks: List of past sessions (auto‑synced)
+
+Favorite Items: Star icons to bookmark outlines or titles
+
+Combine Mode: Select any two sparks → “Merge into one”
+
+Export:
+
+Web: “Export to Google Docs / Notion” button
+
+Mobile: “Share as Markdown” or “Copy All”
+
+C. Brand Voice & Settings
+Voice Profiles: Toggle between “Professional,” “Friendly,” “Witty”
+
+SEO Settings (Creator+): Enter primary keyword → AI will weave it naturally into titles & outline headers.
+
+Billing & Limits: View your Spark quota, upgrade plan, manage payment.
+
+4. Key App Screens & Interactions
+Screen	Purpose	Unique Mobile Touch / Web Benefit
+Home Dashboard	See recent sparks, quotas, and hot-trending topics	Pull‑to‑refresh trending feed
+New Spark Wizard	Step‑by‑step modal for topic → format → voice	Progress dots, swipe‑back to previous step
+Results Grid	Swipe between Outlines / Titles / Promos	Mobile: swipe gestures; Web: keyboard arrows
+Detail Editor	Inline edit + regenerate per item	Mobile: long‑press to regenerate an item
+Project Library	Manage & search past sparks by date, tag, keyword	Web: multi‑select delete; Mobile: swipe to archive
+
+5. Subscription Tiers (App‑Friendly)
+Tier	Price/mo	Sparks per Month	Voice Profiles	Integrations	Offline Cache
+Free	£0	10	1 (Default)	–	Last 2 sparks
+Pro	£9.99	50	3	Google Docs, Notion	Last 10 sparks
+Creator	£19.99	200	Unlimited	+ Buffer, Hootsuite	Unlimited
+Agency	£49.99⁺	Unlimited	Unlimited	Full API access, CSV export	Unlimited
+
+6. Differentiators & Growth Hooks
+Instant Push Notifications: Get notified when “Trending Topics” change in your niche (web push or mobile badge).
+
+“Spark of the Day”: Daily creative prompt emailed/pushed to re‑engage.
+
+Local Draft Storage: Write a quick note in the app—later Spark it into a full outline.
+
+Referral Unlocks: Share your unique link → earn bonus Sparks for referrals.
+
+7. Next Steps for an MVP
+Build “New Spark” flow on Web PWA with topic → outlines → titles only.
+
+Implement core mobile screens in React Native; sync via Firestore.
+
+Integrate Stripe for in‑app purchases and quota enforcement.
+
+Release Beta to 100 creators via TestFlight & an opt‑in web form.
