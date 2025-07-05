@@ -143,17 +143,7 @@ export default function Subscribe() {
   }, [selectedPlan, currentUser.id, toast]);
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <nav className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center">
-            <Zap className="h-8 w-8 text-primary mr-2" />
-            <h1 className="text-xl font-bold text-gray-900">SparkDraft</h1>
-          </div>
-        </div>
-      </nav>
-
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         {/* Page Header */}
         <div className="text-center mb-8">
@@ -176,10 +166,10 @@ export default function Subscribe() {
             {plans.map((plan) => (
               <Card 
                 key={plan.id}
-                className={`cursor-pointer transition-all ${
+                className={`cursor-pointer transition-all bg-white/70 backdrop-blur-sm border-0 shadow-xl ${
                   selectedPlan === plan.id 
-                    ? "border-primary bg-primary/5" 
-                    : "border-gray-200 hover:border-gray-300"
+                    ? "ring-2 ring-primary/50 bg-primary/5" 
+                    : "hover:shadow-2xl hover:scale-[1.02]"
                 }`}
                 onClick={() => setSelectedPlan(plan.id)}
               >
@@ -213,7 +203,7 @@ export default function Subscribe() {
           </div>
 
           {/* Payment Form */}
-          <Card>
+          <Card className="bg-white/70 backdrop-blur-sm border-0 shadow-xl">
             <CardHeader>
               <CardTitle>Payment Details</CardTitle>
             </CardHeader>
